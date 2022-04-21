@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  background-color: black;
+  height: 100vh;
+  color: lightgray;
+}
+
+.head {
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+}
+
+.row {
+  display: flex;
+}
+
+.letter {
+  margin: 4px;
+  padding: 5px;
+  height: 6vh;
+  width: 6vh;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
