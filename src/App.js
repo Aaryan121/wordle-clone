@@ -16,14 +16,18 @@ function App() {
 
   const onEnter = () => {
     if (currentAttempt.letterPos !== 5) return;
+
     setCurrentAttempt({ attempt: currentAttempt.attempt + 1, letterPos: 0 });
   };
 
   const onDelete = () => {
     if (currentAttempt.letterPos === 0) return;
+
     const newBoard = [...board];
+
     newBoard[currentAttempt.attempt][currentAttempt.letterPos - 1] = "";
     setBoard(newBoard);
+
     setCurrentAttempt({
       ...currentAttempt,
       letterPos: currentAttempt.letterPos - 1,
@@ -31,11 +35,15 @@ function App() {
   };
   const onSelectLetter = (keyValue) => {
     if (currentAttempt.letterPos > 4) return;
+
     const newBoard = [...board];
     newBoard[currentAttempt.attempt][currentAttempt.letterPos] = keyValue;
+
     setBoard(newBoard);
+
     setCurrentAttempt({
       ...currentAttempt,
+      attempt: currentAttempt.attempt,
       letterPos: currentAttempt.letterPos + 1,
     });
   };
@@ -53,8 +61,10 @@ function App() {
           onSelectLetter,
         }}
       >
-        <Grid />
-        <Keyboard />
+        <div className="game">
+          <Grid />
+          <Keyboard />
+        </div>
       </AppContext.Provider>
     </div>
   );

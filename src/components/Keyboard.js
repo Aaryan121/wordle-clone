@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useContext } from "react";
 import Keys from "./Keys";
 import { AppContext } from "../App";
 
-function keyboard() {
+function Keyboard() {
   const { onDelete, onEnter, onSelectLetter } = useContext(AppContext);
 
   const key1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
@@ -16,18 +16,18 @@ function keyboard() {
       onDelete();
     } else {
       key1.forEach((key) => {
-        if (event.key === key) {
+        if (event.key.toLowerCase() === key.toLowerCase()) {
           onSelectLetter(key);
         }
       });
       key2.forEach((key) => {
-        if (event.key === key) {
-          onselect(key);
+        if (event.key.toLowerCase() === key.toLowerCase()) {
+          onSelectLetter(key);
         }
       });
       key3.forEach((key) => {
-        if (event.key === key) {
-          onselect(key);
+        if (event.key.toLowerCase() === key.toLowerCase()) {
+          onSelectLetter(key);
         }
       });
     }
@@ -41,7 +41,7 @@ function keyboard() {
   }, [handelKeyboard]);
 
   return (
-    <div onKeyDown={handelKeyboard}>
+    <div className="keyboard" onKeyDown={handelKeyboard}>
       <div className="line1">
         {key1.map((key) => {
           return <Keys keyValue={key} />;
@@ -53,12 +53,14 @@ function keyboard() {
         })}
       </div>
       <div className="line3">
+        <Keys keyValue={"ENTER"} bigkey />
         {key3.map((key) => {
           return <Keys keyValue={key} />;
         })}
+        <Keys keyValue={"DELETE"} bigkey />
       </div>
     </div>
   );
 }
 
-export default keyboard;
+export default Keyboard;
