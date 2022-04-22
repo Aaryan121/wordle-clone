@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { defaultBoard } from "./Words";
 import { AppContext } from "../App";
 
-function Letter({ letterpos, attemptVal }) {
+function Letter({ letterPos, attemptVal }) {
   const { board, setBoard } = useContext(AppContext);
-  const Letter = board[letterpos][attemptVal];
+  const Letter = board[attemptVal][letterPos];
 
   return <div className="letter">{Letter}</div>;
 }
