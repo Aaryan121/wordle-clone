@@ -14,6 +14,8 @@ function App() {
     letterPos: 0,
   });
 
+  const correctWord = "write";
+
   const onEnter = () => {
     if (currentAttempt.letterPos !== 5) return;
 
@@ -59,6 +61,7 @@ function App() {
           onDelete,
           onEnter,
           onSelectLetter,
+          correctWord,
         }}
       >
         <div className="game">
